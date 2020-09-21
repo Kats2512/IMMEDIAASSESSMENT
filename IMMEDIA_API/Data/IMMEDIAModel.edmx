@@ -1,0 +1,539 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="IMMEDIAModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AspNetRoles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaims">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ClaimType" Type="nvarchar(max)" />
+          <Property Name="ClaimValue" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogins">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserRoles">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="256" />
+          <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+          <Property Name="PasswordHash" Type="nvarchar(max)" />
+          <Property Name="SecurityStamp" Type="nvarchar(max)" />
+          <Property Name="PhoneNumber" Type="nvarchar(max)" />
+          <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="datetime" />
+          <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="DrivingLicenceNumber" Type="nvarchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FourSquarePhotoMetaData">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="DateCreated" Type="datetime" Nullable="false" />
+          <Property Name="PhotoId" Type="varchar" MaxLength="50" />
+          <Property Name="PhotoPrefix" Type="varchar" MaxLength="1000" />
+          <Property Name="PhotoSuffix" Type="varchar" MaxLength="1000" />
+          <Property Name="PhotoWidth" Type="varchar" MaxLength="50" />
+          <Property Name="PhotoHeight" Type="varchar" MaxLength="50" />
+          <Property Name="PhotoOwner" Type="varchar" MaxLength="200" />
+          <Property Name="PhotoVisibility" Type="varchar" MaxLength="50" />
+          <Property Name="VenueId" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FourSquareVenueMetaData">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="DateCreated" Type="datetime" Nullable="false" />
+          <Property Name="VenueId" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="VenueName" Type="varchar" MaxLength="500" />
+          <Property Name="VenueAddress" Type="varchar" MaxLength="1000" />
+          <Property Name="VenueCrossStreet" Type="varchar" MaxLength="1000" />
+          <Property Name="VenueLatitude" Type="varchar" MaxLength="100" />
+          <Property Name="VenueLongitude" Type="varchar" MaxLength="100" />
+          <Property Name="VenuePostalCode" Type="varchar" MaxLength="20" />
+          <Property Name="VenueCC" Type="varchar" MaxLength="20" />
+          <Property Name="VenueCity" Type="varchar" MaxLength="50" />
+          <Property Name="VenueState" Type="varchar" MaxLength="100" />
+          <Property Name="VenueCountry" Type="varchar" MaxLength="100" />
+          <Property Name="VenueFormattedAddress" Type="varchar" MaxLength="2000" />
+          <Property Name="VenueCategoryName" Type="varchar" MaxLength="200" />
+          <Property Name="VenueCategoryNamePlural" Type="varchar" MaxLength="200" />
+          <Property Name="VenueCategoryNameShort" Type="varchar" MaxLength="200" />
+          <Property Name="VenueCategoryPrefix" Type="varchar" MaxLength="500" />
+          <Property Name="VenueCategorySuffix" Type="varchar" MaxLength="50" />
+          <Property Name="SearchNameEnteredByUser" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FourSquareVenueRecommendationsMetaData">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="DateCreated" Type="datetime" Nullable="false" />
+          <Property Name="DisplayString" Type="varchar" MaxLength="500" />
+          <Property Name="HeaderLocation" Type="varchar" MaxLength="500" />
+          <Property Name="HeaderLocationFull" Type="varchar" MaxLength="500" />
+          <Property Name="HeaderLocationGranularity" Type="varchar" MaxLength="100" />
+          <Property Name="Latitude" Type="varchar" MaxLength="100" />
+          <Property Name="Longitude" Type="varchar" MaxLength="100" />
+          <Property Name="VenueId" Type="varchar" MaxLength="50" />
+          <Property Name="VenueName" Type="varchar" MaxLength="500" />
+          <Property Name="VenuePostalCode" Type="varchar" MaxLength="30" />
+          <Property Name="VenueCC" Type="varchar" MaxLength="50" />
+          <Property Name="VenueCity" Type="varchar" MaxLength="100" />
+          <Property Name="VenueState" Type="varchar" MaxLength="100" />
+          <Property Name="VenueCountry" Type="varchar" MaxLength="100" />
+          <Property Name="VenueFormattedAddress" Type="varchar" MaxLength="500" />
+          <Property Name="CategoryId" Type="varchar" MaxLength="50" />
+          <Property Name="CategoryName" Type="varchar" MaxLength="100" />
+          <Property Name="CategoryPluralName" Type="varchar" MaxLength="200" />
+          <Property Name="CategoryShortName" Type="varchar" MaxLength="100" />
+          <Property Name="CategoryPrefix" Type="varchar" MaxLength="1000" />
+          <Property Name="CategorySuffix" Type="varchar" MaxLength="20" />
+          <Property Name="UserSearchString" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+          <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetRoles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="IMMEDIAModelStoreContainer">
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FourSquarePhotoMetaData" EntityType="Self.FourSquarePhotoMetaData" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FourSquareVenueMetaData" EntityType="Self.FourSquareVenueMetaData" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FourSquareVenueRecommendationsMetaData" EntityType="Self.FourSquareVenueRecommendationsMetaData" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="IMMEDIAModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AspNetRole">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Self.AspNetUserRoles" FromRole="AspNetRoles" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaim">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaims" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogin">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProviderKey" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogins" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+          <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DrivingLicenceNumber" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUserClaims" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
+          <NavigationProperty Name="AspNetUserLogins" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
+          <NavigationProperty Name="AspNetRoles" Relationship="Self.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
+        </EntityType>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AspNetUserRoles">
+          <End Role="AspNetRoles" Type="Self.AspNetRole" Multiplicity="*" />
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="IMMEDIAEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRole" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaim" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogin" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUser" />
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="AspNetUserRoles" Association="Self.AspNetUserRoles">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+          </AssociationSet>
+          <EntitySet Name="FourSquareVenueMetaDatas" EntityType="IMMEDIAModel.FourSquareVenueMetaData" />
+          <EntitySet Name="FourSquareVenueRecommendationsMetaDatas" EntityType="IMMEDIAModel.FourSquareVenueRecommendationsMetaData" />
+          <EntitySet Name="FourSquarePhotoMetaDatas" EntityType="IMMEDIAModel.FourSquarePhotoMetaData" />
+        </EntityContainer>
+        <EntityType Name="FourSquareVenueMetaData">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="DateCreated" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="VenueId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="VenueName" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="VenueAddress" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="VenueCrossStreet" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="VenueLatitude" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="VenueLongitude" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="VenuePostalCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="VenueCC" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="VenueCity" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="VenueState" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="VenueCountry" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="VenueFormattedAddress" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Name="VenueCategoryName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="VenueCategoryNamePlural" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="VenueCategoryNameShort" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="VenueCategoryPrefix" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="VenueCategorySuffix" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SearchNameEnteredByUser" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="FourSquareVenueRecommendationsMetaData">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="DateCreated" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DisplayString" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="HeaderLocation" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="HeaderLocationFull" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="HeaderLocationGranularity" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Latitude" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Longitude" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="VenueId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="VenueName" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="VenuePostalCode" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="VenueCC" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="VenueCity" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="VenueState" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="VenueCountry" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="VenueFormattedAddress" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="CategoryId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CategoryName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CategoryPluralName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="CategoryShortName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CategoryPrefix" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="CategorySuffix" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="UserSearchString" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="FourSquarePhotoMetaData">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="DateCreated" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="PhotoId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PhotoPrefix" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="PhotoSuffix" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="PhotoWidth" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PhotoHeight" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PhotoOwner" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="PhotoVisibility" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="VenueId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="IMMEDIAModelStoreContainer" CdmEntityContainer="IMMEDIAEntities">
+          <EntitySetMapping Name="AspNetRoles">
+            <EntityTypeMapping TypeName="IMMEDIAModel.AspNetRole">
+              <MappingFragment StoreEntitySet="AspNetRoles">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserClaims">
+            <EntityTypeMapping TypeName="IMMEDIAModel.AspNetUserClaim">
+              <MappingFragment StoreEntitySet="AspNetUserClaims">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+                <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserLogins">
+            <EntityTypeMapping TypeName="IMMEDIAModel.AspNetUserLogin">
+              <MappingFragment StoreEntitySet="AspNetUserLogins">
+                <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+                <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUsers">
+            <EntityTypeMapping TypeName="IMMEDIAModel.AspNetUser">
+              <MappingFragment StoreEntitySet="AspNetUsers">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+                <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+                <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+                <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+                <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="DrivingLicenceNumber" ColumnName="DrivingLicenceNumber" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="AspNetUserRoles" TypeName="IMMEDIAModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+            <EndProperty Name="AspNetRoles">
+              <ScalarProperty Name="Id" ColumnName="RoleId" />
+            </EndProperty>
+            <EndProperty Name="AspNetUsers">
+              <ScalarProperty Name="Id" ColumnName="UserId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <EntitySetMapping Name="FourSquareVenueMetaDatas">
+            <EntityTypeMapping TypeName="IMMEDIAModel.FourSquareVenueMetaData">
+              <MappingFragment StoreEntitySet="FourSquareVenueMetaData">
+                <ScalarProperty Name="SearchNameEnteredByUser" ColumnName="SearchNameEnteredByUser" />
+                <ScalarProperty Name="VenueCategorySuffix" ColumnName="VenueCategorySuffix" />
+                <ScalarProperty Name="VenueCategoryPrefix" ColumnName="VenueCategoryPrefix" />
+                <ScalarProperty Name="VenueCategoryNameShort" ColumnName="VenueCategoryNameShort" />
+                <ScalarProperty Name="VenueCategoryNamePlural" ColumnName="VenueCategoryNamePlural" />
+                <ScalarProperty Name="VenueCategoryName" ColumnName="VenueCategoryName" />
+                <ScalarProperty Name="VenueFormattedAddress" ColumnName="VenueFormattedAddress" />
+                <ScalarProperty Name="VenueCountry" ColumnName="VenueCountry" />
+                <ScalarProperty Name="VenueState" ColumnName="VenueState" />
+                <ScalarProperty Name="VenueCity" ColumnName="VenueCity" />
+                <ScalarProperty Name="VenueCC" ColumnName="VenueCC" />
+                <ScalarProperty Name="VenuePostalCode" ColumnName="VenuePostalCode" />
+                <ScalarProperty Name="VenueLongitude" ColumnName="VenueLongitude" />
+                <ScalarProperty Name="VenueLatitude" ColumnName="VenueLatitude" />
+                <ScalarProperty Name="VenueCrossStreet" ColumnName="VenueCrossStreet" />
+                <ScalarProperty Name="VenueAddress" ColumnName="VenueAddress" />
+                <ScalarProperty Name="VenueName" ColumnName="VenueName" />
+                <ScalarProperty Name="VenueId" ColumnName="VenueId" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FourSquareVenueRecommendationsMetaDatas">
+            <EntityTypeMapping TypeName="IMMEDIAModel.FourSquareVenueRecommendationsMetaData">
+              <MappingFragment StoreEntitySet="FourSquareVenueRecommendationsMetaData">
+                <ScalarProperty Name="UserSearchString" ColumnName="UserSearchString" />
+                <ScalarProperty Name="CategorySuffix" ColumnName="CategorySuffix" />
+                <ScalarProperty Name="CategoryPrefix" ColumnName="CategoryPrefix" />
+                <ScalarProperty Name="CategoryShortName" ColumnName="CategoryShortName" />
+                <ScalarProperty Name="CategoryPluralName" ColumnName="CategoryPluralName" />
+                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+                <ScalarProperty Name="VenueFormattedAddress" ColumnName="VenueFormattedAddress" />
+                <ScalarProperty Name="VenueCountry" ColumnName="VenueCountry" />
+                <ScalarProperty Name="VenueState" ColumnName="VenueState" />
+                <ScalarProperty Name="VenueCity" ColumnName="VenueCity" />
+                <ScalarProperty Name="VenueCC" ColumnName="VenueCC" />
+                <ScalarProperty Name="VenuePostalCode" ColumnName="VenuePostalCode" />
+                <ScalarProperty Name="VenueName" ColumnName="VenueName" />
+                <ScalarProperty Name="VenueId" ColumnName="VenueId" />
+                <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+                <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+                <ScalarProperty Name="HeaderLocationGranularity" ColumnName="HeaderLocationGranularity" />
+                <ScalarProperty Name="HeaderLocationFull" ColumnName="HeaderLocationFull" />
+                <ScalarProperty Name="HeaderLocation" ColumnName="HeaderLocation" />
+                <ScalarProperty Name="DisplayString" ColumnName="DisplayString" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FourSquarePhotoMetaDatas">
+            <EntityTypeMapping TypeName="IMMEDIAModel.FourSquarePhotoMetaData">
+              <MappingFragment StoreEntitySet="FourSquarePhotoMetaData">
+                <ScalarProperty Name="VenueId" ColumnName="VenueId" />
+                <ScalarProperty Name="PhotoVisibility" ColumnName="PhotoVisibility" />
+                <ScalarProperty Name="PhotoOwner" ColumnName="PhotoOwner" />
+                <ScalarProperty Name="PhotoHeight" ColumnName="PhotoHeight" />
+                <ScalarProperty Name="PhotoWidth" ColumnName="PhotoWidth" />
+                <ScalarProperty Name="PhotoSuffix" ColumnName="PhotoSuffix" />
+                <ScalarProperty Name="PhotoPrefix" ColumnName="PhotoPrefix" />
+                <ScalarProperty Name="PhotoId" ColumnName="PhotoId" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

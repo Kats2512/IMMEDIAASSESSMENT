@@ -1,0 +1,53 @@
+﻿<div class="row">
+    <div class="col-md-12">
+        <div class="col-md-2 col-md-offset-2" style="margin-top:8px;margin-right:-30px;">Enter A Place To Search:</div>
+        <div class="col-md-4">
+            <input type="text" id="txtAreaName" placeholder="Enter A Place To Search" class="form-control" />
+        </div>
+        <div class="col-md-2" style="margin-left:-90px;">
+            <button type="button" class="btn btn-success" onclick="Immedia.VenueSearch.SearchVenue()">Search</button>
+        </div>
+    </div>
+</div>
+<br />
+<div id="loadSpinner"><center><i class="fa fa-spinner fa-spin" style="font-size:36px;"></i></center></div>
+<div id="search-result">
+
+</div>
+
+<script type="text/javascript">
+    var Immedia = Immedia || {};
+
+    Immedia.VenueSearch = {};
+
+    Immedia.VenueSearch.init = function () {
+        $("#loadSpinner").hide();
+    }
+
+    Immedia.VenueSearch.SearchVenue = function () {
+        //alert($("#txtAreaName").val());
+        if ($("#txtAreaName").val() === '') {
+            alert('Enter a place to search');
+        } else {
+            $("#loadSpinner").show();
+            $.ajax({
+                url: '@Url.Action("GetVenueListByVenueName", "Home")',
+                cache: false,
+                async: true,
+                type: "GET",
+                data: "venueName=" + $("#txtAreaName").val(),
+                success: function (data) {
+                    console.log(data);
+                    if (data) {
+                        $("#loadSpinner").hide();
+                        $('#search-result').html(data);
+                    }
+                }
+            });
+        }
+    }
+
+    $(function () {
+        Immedia.VenueSearch.init();
+    });
+</script>

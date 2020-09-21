@@ -1,0 +1,17 @@
+﻿@model List<Presentation.DTO.PhotoDetailsDto>
+<div class="row">
+    <div class="col-md-12">
+        <center><h2><span class="text-uppercase">@ViewBag.LocationName</span></h2></center>
+    </div>
+</div>
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <a href="#/Home/GetPhotoDetails?photoId=@item.PhotoId">
+            <div class="col-md-4">
+                <img src="@(@item.PhotoPrefix+item.PhotoWidth+item.PhotoHeight+item.PhotoSuffix)" alt="Avatar" height="250" width="250">
+            </div>
+        </a>
+    }
+</div>
+

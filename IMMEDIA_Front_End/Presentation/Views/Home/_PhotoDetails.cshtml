@@ -1,0 +1,17 @@
+﻿@model Presentation.DTO.PhotoDetailsDto
+
+<div class="row">
+    <div class="col-md-6">
+        <div style="padding-top:25px;">
+            <img src="@(@Model.PhotoPrefix+Model.PhotoHeight+Model.PhotoWidth+Model.PhotoSuffix)" height="400" alt="400" />
+        </div>
+    </div>
+    <div class="col-md-6">
+        <h2>Owner: </h2>@Model.PhotoOwner<br/>
+        <h2>Venue: </h2>@Model.HeaderLocation<br />
+        <h2>Address: </h2>@Model.VenueFormattedAddress
+        <h2>Category: </h2>@Model.CategoryName
+        <h2>Photo Height: </h2>@Model.PhotoHeight PX
+        <h2>Photo Width: </h2>@Model.PhotoWidth PX
+    </div>
+</div>

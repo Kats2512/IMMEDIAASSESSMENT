@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="cc36360739584176a87a58bf8ec6c6ac" Name="Diagram1">
+        <EntityTypeShape EntityType="IMMEDIAModel.AspNetRole" Width="1.5" PointX="0.75" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMMEDIAModel.AspNetUserClaim" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMMEDIAModel.AspNetUserLogin" Width="1.5" PointX="5.25" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMMEDIAModel.AspNetUser" Width="1.5" PointX="3" PointY="1.25" IsExpanded="true" />
+        <AssociationConnector Association="IMMEDIAModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="IMMEDIAModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="IMMEDIAModel.AspNetUserRoles" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="IMMEDIAModel.FourSquareVenueMetaData" Width="1.5" PointX="0.75" PointY="6.75" />
+        <EntityTypeShape EntityType="IMMEDIAModel.FourSquareVenueRecommendationsMetaData" Width="1.5" PointX="3.375" PointY="6.75" />
+        <EntityTypeShape EntityType="IMMEDIAModel.FourSquarePhotoMetaData" Width="1.5" PointX="5.375" PointY="6.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,29 @@
+﻿@model List<Presentation.DTO.VenueListDataDto>
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <a href="#/Home/GetImagesForVenue?venueId=@item.VenueId&venueName=@item.VenueName">
+            <div class="col-md-4">
+                <div style="height:320px">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading text-uppercase"><center>@item.VenueName</center></div>
+
+                        <div class="panel-body">
+                            <div style="background-color:black;">
+                                <center>
+                                    <img src="@(@item.CategoryPrefix + "120" + item.CategorySuffix)" />
+                                </center>
+                            </div>
+                            <center>
+                                @item.CategoryName<br />
+                                @item.DisplayString<br />
+                                @item.VenueFormattedAddress
+                            </center>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+    }
+</div>
